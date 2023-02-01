@@ -4,7 +4,8 @@
     TempData["Title"] = "Categories";
 }
 
-<div class="card shadow-sm">
+<div id="formContainer">
+    <div  class="card shadow-sm">
     <div class="card-header">
         <h3 class="card-title">
             <div class="symbol symbol-40px me-4">
@@ -69,17 +70,17 @@
                             <tr >
                                 <td>@category.CategoryName</td>
                                 <td>
-                                    <span class="badge badge-light-@(category.IsDeleted ? "danger" : "success")">
-                                        @(category.IsDeleted ? "Deleted" : "Available")
+                                    <span  class=" js-status badge badge-light-@(category.IsDeleted ? "danger" : "success")">
+                                        @(category.IsDeleted==true ? "Deleted" : "Available")
                                     </span>
                                 </td>
                                 <td>@category.CreatedOn</td>
                                 <td>@category.LastUpdatedOn</td>
-                                <td>
+                                <td id="Deletedrow">
                                     <a id="Edit" class="btn btn-sm btn-outline btn-outline-dashed btn-outline-primary btn-active-light-primary js-animate" asp-controller="Categories" asp-action="Edit" asp-route-id="@category.CategoryId">
                                         Edit
                                     </a>
-                                    <a class="btn btn-sm btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger" onclick="Categories.DeleteCategory(@category.CategoryId)">
+                                    <a class="btn btn-sm btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger" data-categoryid=@category.CategoryId onclick="Categories.DeleteCategory(this,@category.CategoryId)">
                                         Delete
                                     </a>
                                 </td>
@@ -107,4 +108,6 @@ else if (ViewBag.Save == "Updated")
         Categories.ShowPopup("Update");
     </script>
 }
+
+</div>    
 

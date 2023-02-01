@@ -1,18 +1,16 @@
 ﻿var Categories = {
     GetAllCategories: function () {
-        $.ajax({
-            url: "/Admin/Categories/List",
-            success: function (data) {
+        $.get('/Admin/Categories/List',
+            function (data) {
                 console.log(data);
-                success(data);
-                return data;
-            },
-            error: function () {
-
-            },
-
-        });
+               // $("#formContainer").html(data);
+              
+            });
+                        
     },
+   
+    
+
     ShowPopup: function (state) {
         if (state === "Add") {
             Swal.fire({
@@ -34,7 +32,7 @@
 
         }
     },
-    DeleteCategory: function (categoryid) {
+    DeleteCategory: function (btn,categoryid) {
         bootbox.confirm('Are you sure ?',
             function (result) {
                 if (result) {
@@ -45,12 +43,18 @@
                                 'Category Deleted Successfuly!',
                                 'success'
                             )
-                        });
-
+                            var row = btn.parentNode.parentNode
+                            console.log(row);                           
+                            row.ClassName +='animate__animated animate__flash';
+                           
+                            
+                        });                
+                 
+                    
                 }
-            });
-
+            });               
     },
+   
 
 }
 

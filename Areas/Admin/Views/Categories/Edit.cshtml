@@ -11,6 +11,7 @@
             <div class="col-md-4">
                 <form method="post" asp-controller="Categories" asp-action="Save">
                     <input type="hidden" asp-for="CategoryId" value="@Model.CategoryId" />
+                    <input type="hidden" asp-for="IsDeleted" value="@Model.IsDeleted" />
                     <div class="mb-5">
                         <div class="form-floating mb-2">
                             <input type="text" class="form-control" placeholder="Name" asp-for="CategoryName" />
