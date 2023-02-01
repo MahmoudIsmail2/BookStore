@@ -56,6 +56,7 @@ namespace BookStore.Bl
                 {
                     category.LastUpdatedOn = DateTime.Now;
                     context.TbCategories.Update(category);
+                    
                 }
                 context.SaveChanges();
                 return true;

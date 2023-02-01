@@ -1,8 +1,10 @@
-﻿@model TbCategories
+﻿@model BookStore.Domains.TbCategories
 
-@{
-    ViewData["Title"] ="Create Category";
-}
+
+ @{
+    TempData["Title"] = "Create Category";
+ }
+
 
 <div class="card shadow-sm">
     <div class="card-header">
@@ -14,11 +16,12 @@
                 <form method="post" asp-controller="Categories" asp-action="Save">
 
                     <div class="mb-5">
-                        <div class="form-floating mb-2">
-                            <input type="text" class="form-control" placeholder="Name" asp-for="CategoryName" />
-                            <label asp-for="CategoryName"></label>
-                        </div>
                         <span asp-validation-for="CategoryName" class="text-danger"></span>
+                        <div class="form-floating mb-2">                      
+                            <input type="text" asp-for="CategoryName"  class="form-control" placeholder="Name" asp-for="CategoryName" />
+                            <label > Category Name</label>
+                        </div>
+
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-sm">
