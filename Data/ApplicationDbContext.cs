@@ -17,7 +17,9 @@ namespace BookStore.Data
         {
             base.OnConfiguring(optionsBuilder);
         }
+
         public virtual DbSet<TbCategories> TbCategories { get; set; }
+        public virtual DbSet<TbAuthors> TbAuthors { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

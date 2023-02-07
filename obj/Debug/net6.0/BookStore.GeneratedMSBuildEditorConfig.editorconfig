@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Coursec\Asp.Net Mvc\Projects\BookStore
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Coursec/Asp.Net Mvc/Projects/BookStore/Areas/Admin/Views/Authors/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXV0aG9yc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Coursec/Asp.Net Mvc/Projects/BookStore/Areas/Admin/Views/Authors/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXV0aG9yc1xMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Coursec/Asp.Net Mvc/Projects/BookStore/Areas/Admin/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

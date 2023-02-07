@@ -1,0 +1,109 @@
+﻿@model List<TbAuthors>
+@{
+    TempData["Title"] = "Authors";
+}
+<div id="formContainer">
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h3 class="card-title">
+                <div class="symbol symbol-40px me-4">
+                    <div class="symbol-label fs-2 fw-semibold text-success">
+                        <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
+                        <span class="svg-icon svg-icon-2 svg-icon-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </div>
+                </div>
+                 Authors
+            </h3>
+            <div class="card-toolbar">
+                <a asp-controller="Authors" asp-action="Create" class="btn btn-sm btn-primary">
+                    <i class="bi bi-plus-square-dotted"></i>
+                    Add
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            @if (!Model.Any())
+            {
+                <div class="alert alert-dismissible bg-light-warning border border-warning border-dashed d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+                    <!--begin::Icon-->
+                    <!--begin::Svg Icon | path: icons/duotune/communication/com003.svg-->
+                    <span class="svg-icon svg-icon-2hx svg-icon-warning me-4 mb-5 mb-sm-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
+                            <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor" />
+                            <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                    <!--end::Icon-->
+                    <!--begin::Content-->
+                    <div class="d-flex flex-column pe-0 pe-sm-10 align-self-center">
+                        <h5 class="mb-1">No Authors found!</h5>
+                    </div>
+                    <!--end::Content-->
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table id="order-listing" class="table table-row-dashed table-row-gray-300 gy-7">
+                        <thead>
+                            <tr class="fw-bold fs-6 text-gray-800 ">
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Created On</th>
+                                <th>Last Updated On</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Author in Model)
+                            {
+                                <tr>
+                                    <td>@Author.AuthorName</td>
+                                    <td>
+                                        <span class=" js-status badge badge-light-@(Author.IsDeleted ? "danger" : "success")">
+                                            @(Author.IsDeleted == true ? "Deleted" : "Available")
+                                        </span>
+                                    </td>
+                                    <td>@Author.CreatedOn</td>
+                                    <td>@Author.LastUpdatedOn</td>
+                                    <td id="Deletedrow">
+                                        <a id="Edit" class="btn btn-sm btn-outline btn-outline-dashed btn-outline-primary btn-active-light-primary js-animate" asp-controller="Categories" asp-action="Edit" asp-route-id="@Author.AuthorId">
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-sm btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger" data-Authorid=@Author.AuthorId onclick="Categories.DeleteAuthor(this,@Author.AuthorId)">
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+    <script src="~/admin/js/site.js"></script>
+    <script src="~/Admin/js/site.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (ViewBag.Save == "Done")
+    {
+        <script>         
+           Authors.ShowPopup("Add");
+        </script>
+
+    }
+    else if (ViewBag.Save == "Updated")
+    {
+        <script>
+            Authors.ShowPopup("Update");
+        </script>
+    }
+
+</div>

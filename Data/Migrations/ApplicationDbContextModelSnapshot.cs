@@ -22,6 +22,36 @@ namespace BookStore.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("BookStore.Domains.TbAuthors", b =>
+                {
+                    b.Property<int>("AuthorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuthorId"), 1L, 1);
+
+                    b.Property<string>("AuthorName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastUpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("AuthorId");
+
+                    b.HasIndex("AuthorName")
+                        .IsUnique();
+
+                    b.ToTable("TbAuthors");
+                });
+
             modelBuilder.Entity("BookStore.Domains.TbCategories", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -31,8 +61,9 @@ namespace BookStore.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
 
                     b.Property<string>("CategoryName")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");

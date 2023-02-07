@@ -44,8 +44,10 @@
                                 'success'
                             )
                             var row = btn.parentNode.parentNode
-                            console.log(row);                           
-                            row.ClassName +='animate__animated animate__flash';
+                            console.log(row);            
+                            row.classList.add("animate__animated animate__flash");
+
+                            //row.ClassName +='animate__animated animate__flash';
                            
                             
                         });                
@@ -56,5 +58,27 @@
     },
    
 
+}
+var Authors = {
+    ShowPopup: function (state) {
+        if (state === "Add") {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Category Added Successfully',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        }
+        else {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your Category has been Updated',
+                showConfirmButton: false,
+                timer: 3000
+            })
+
+        }
 }
 
