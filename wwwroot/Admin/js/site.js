@@ -7,10 +7,7 @@
               
             });
                         
-    },
-   
-    
-
+    },   
     ShowPopup: function (state) {
         if (state === "Add") {
             Swal.fire({
@@ -80,5 +77,41 @@ var Authors = {
             })
 
         }
-}
+    }
+    , DeleteAuthor: function (btn, authorid) {
+        bootbox.confirm('Are you sure ?',
+            function (result) {
+                if (result) {
+                    $.post('/Admin/Authors/Delete?authorid=' + authorid,
+                        function () {
+                            Swal.fire(
+                                'Good job!',
+                                'Author Deleted Successfuly!',
+                                'success'
+                            )
+                         
 
+                        });
+
+
+                }
+            });
+    },
+}
+$(document).ready(function () {
+    //date calendar
+    $('#datecalender').daterangepicker({
+        singleDatePicker: true,
+        "drops": "up",
+        showDropdowns: true,
+
+
+    })
+    //select2
+    $('.js-select').select2();
+
+    
+
+
+});
+      

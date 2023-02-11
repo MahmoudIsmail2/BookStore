@@ -74,10 +74,10 @@
                                     <td>@Author.CreatedOn</td>
                                     <td>@Author.LastUpdatedOn</td>
                                     <td id="Deletedrow">
-                                        <a id="Edit" class="btn btn-sm btn-outline btn-outline-dashed btn-outline-primary btn-active-light-primary js-animate" asp-controller="Categories" asp-action="Edit" asp-route-id="@Author.AuthorId">
+                                        <a id="Edit" class="btn btn-sm btn-outline btn-outline-dashed btn-outline-primary btn-active-light-primary js-animate" asp-controller="Authors" asp-action="Edit" asp-route-id="@Author.AuthorId">
                                             Edit
                                         </a>
-                                        <a class="btn btn-sm btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger" data-Authorid=@Author.AuthorId onclick="Categories.DeleteAuthor(this,@Author.AuthorId)">
+                                        <a class="btn btn-sm btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger" data-Authorid=@Author.AuthorId onclick="Authors.DeleteAuthor(this,@Author.AuthorId)">
                                             Delete
                                         </a>
                                     </td>
@@ -92,7 +92,7 @@
     <script src="~/admin/js/site.js"></script>
     <script src="~/Admin/js/site.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @if (ViewBag.Save == "Done")
+@*    @if (ViewBag.Save == "Done")
     {
         <script>         
            Authors.ShowPopup("Add");
@@ -104,6 +104,6 @@
         <script>
             Authors.ShowPopup("Update");
         </script>
-    }
+    }*@
 
 </div>

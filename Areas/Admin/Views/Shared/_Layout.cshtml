@@ -13,8 +13,10 @@
 	<!--end::Global Stylesheets Bundle-->
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link href="~/admin/css/stylesheet.css" rel="stylesheet" />
-	
-    <link href="~/admin/lib/animate.css/animate.min.css" rel="stylesheet" />	
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/admin/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" />
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="~/icons8-repository-16.png" />
 </head>
@@ -77,7 +79,11 @@
     <script src="~/admin/js/site.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="~/Admin/js/Helper.js"></script>
-
+    <script src="~/lib/select2/js/select2.min.js"></script>
+    <script src="~/lib/bootstrap-daterangepicker/moment.min.js"></script>
+    
+    <script src="~/lib/bootstrap-daterangepicker/daterangepicker.min.js"></script>
+   
 	@await RenderSectionAsync("Scripts", required: false)
 	
 </body>

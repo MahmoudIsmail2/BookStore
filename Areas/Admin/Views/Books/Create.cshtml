@@ -20,13 +20,13 @@
                         <span asp-validation-for="@Model.BookTitle"></span>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" style="padding-bottom: inherit;" asp-for="@Model.AuthorId" asp-items="@(new SelectList(ViewBag.Authors,"AuthorId","AuthorName" ))">
+                            <select  class="form-select js-select h-60px" style="padding-bottom: inherit;" asp-for="@Model.AuthorId" asp-items="@(new SelectList(ViewBag.Authors,"AuthorId","AuthorName" ))">
                             <option value="">Select Author </option>                 
                         </select>
                         <label for="floatingSelect">Authors</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" style="padding-bottom: inherit;" asp-for="@Model.CategoryId" asp-items="@(new SelectList(ViewBag.Categories,"CategoryId","CategoryName" ))">
+                            <select  class="form-select js-select h-60px" style="padding-bottom: inherit;" asp-for="@Model.CategoryId" asp-items="@(new SelectList(ViewBag.Categories,"CategoryId","CategoryName" ))">
                             <option value="">Select Category </option>
                         </select>
                         <label for="floatingSelect">Categories</label>
@@ -37,7 +37,7 @@
                         <span asp-validation-for="@Model.Publisher"></span>
                     </div>
                       <div class="form-floating mb-3">
-                        <input asp-for="@Model.PublishingDate" type="date" class="form-control" placeholder="Publishing Date">
+                        <input id="datecalender" asp-for="@Model.PublishingDate" type="text" class="form-control " placeholder="Publishing Date">
                         <label for="floatingInput">Publishing Date</label>
                         <span asp-validation-for="@Model.PublishingDate"></span>
                     </div>
@@ -52,9 +52,9 @@
                         <label for="floatingInput">Image</label>
                         <span asp-validation-for="@Model.Hall"></span>
                     </div>
-                    <div class="form-check mb-3">
+                        <div class=" form-check form-switch mb-3">
                         <input asp-for="IsAvaliableForRental" class="form-check-input" type="checkbox" >
-                        <label class="form-check-label" >
+                            <label style="    font-size: 14px;" class="form-check-label">
                            Is Available For Rental
                         </label>
                         <span asp-validation-for="@Model.IsAvaliableForRental"></span>
@@ -64,7 +64,7 @@
                         <label for="floatingTextarea2">Descreption</label>
                         <span asp-validation-for="@Model.Descreption"></span>
                     </div>
-                     <button type="submit" class="btn btn-primary ">
+                        <button id=" js-savebutton" type="submit" class="btn btn-primary ">
                         <i class="bi bi-check2"></i>
                         Save
                     </button>
