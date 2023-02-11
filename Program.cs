@@ -19,6 +19,7 @@ builder.Services.AddControllersWithViews();
 #region DebendencyInjection
 builder.Services.AddScoped<IClsCategories, ClsCategories>();
 builder.Services.AddScoped<IClsAuthors, ClsAuthors>();
+builder.Services.AddScoped<IClsBooks, ClsBooks>();
 #endregion
 var app = builder.Build();
 

@@ -20,6 +20,8 @@ namespace BookStore.Data
 
         public virtual DbSet<TbCategories> TbCategories { get; set; }
         public virtual DbSet<TbAuthors> TbAuthors { get; set; }
+        public virtual DbSet<TbBooks> TbBooks { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

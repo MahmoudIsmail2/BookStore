@@ -16,12 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
+    <None Include="wwwroot\Admin\css\StyleSheet.css" />
+    <None Include="wwwroot\Admin\Logo\6863707.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Admin\css\StyleSheet.css" />
-    <None Include="wwwroot\Admin\Logo\6863707.jpg" />
+    <Folder Include="wwwroot\Admin\Uploads\Books\" />
   </ItemGroup>
 
 </Project>
