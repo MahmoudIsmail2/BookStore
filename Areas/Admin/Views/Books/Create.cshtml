@@ -1,5 +1,4 @@
-﻿
-@model TbBooks
+﻿@model TbBooks
 @{
     TempData["Title"] = "Add Book";
 }
@@ -11,78 +10,88 @@
     </div>
     <div class="card-body">
         <div class="row">
-            <form method="post" asp-controller="Books" asp-action="Create" enctype="multipart/form-data" >
+
+            <form method="post" asp-controller="Books" asp-action="Create" enctype="multipart/form-data">
                 <div class="row">
-                     <div class="col-md-6">
-                    <div class="form-floating mb-3">
-                        <input asp-for="@Model.BookTitle" type="text" class="form-control"  placeholder="Title">
-                        <label for="floatingInput">Title</label>
-                        <span asp-validation-for="@Model.BookTitle"></span>
-                    </div>
-                    <div class="form-floating mb-3">
-                            <select  class="form-select js-select h-60px" style="padding-bottom: inherit;" asp-for="@Model.AuthorId" asp-items="@(new SelectList(ViewBag.Authors,"AuthorId","AuthorName" ))">
-                            <option value="">Select Author </option>                 
-                        </select>
-                        <label for="floatingSelect">Authors</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                            <select  class="form-select js-select h-60px" style="padding-bottom: inherit;" asp-for="@Model.CategoryId" asp-items="@(new SelectList(ViewBag.Categories,"CategoryId","CategoryName" ))">
-                            <option value="">Select Category </option>
-                        </select>
-                        <label for="floatingSelect">Categories</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input asp-for="@Model.Publisher" type="text" class="form-control" placeholder="Publisher">
-                        <label for="floatingInput">Publisher</label>
-                        <span asp-validation-for="@Model.Publisher"></span>
-                    </div>
-                      <div class="form-floating mb-3">
-                        <input id="datecalender" asp-for="@Model.PublishingDate" type="text" class="form-control " placeholder="Publishing Date">
-                        <label for="floatingInput">Publishing Date</label>
-                        <span asp-validation-for="@Model.PublishingDate"></span>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input asp-for="@Model.Hall" type="text" class="form-control" placeholder="Hall">
-                        <label for="floatingInput">Hall</label>
-                        <span asp-validation-for="@Model.Hall"></span>
-                    </div>
-                    <div class="form-floating mb-3">
-                            <input name="img" type="file" class="form-control" placeholder="Image Cover" 
-                            onchange="document.getElementById('imagepreview').src=window.URL.createObjectURL(this.files[0])">
-                        <label for="floatingInput">Image</label>
-                        <span asp-validation-for="@Model.Hall"></span>
-                    </div>
-                        <div class=" form-check form-switch mb-3">
-                        <input asp-for="IsAvaliableForRental" class="form-check-input" type="checkbox" >
+                    <div class="col-md-6">
+                        <div class="form-floating mb-5">
+                            <input asp-for="@Model.BookTitle" type="text" class="form-control form-control-solid" placeholder="Title">
+                            <label for="floatingInput">Title</label>
+                            <span asp-validation-for="@Model.BookTitle"></span>
+                        </div>
+                        <div class="form-floating mb-5">
+                            <select class="form-select form-select-solid js-select h-60px" style="padding-bottom: inherit;" asp-for="@Model.AuthorId" asp-items="@(new SelectList(ViewBag.Authors,"AuthorId","AuthorName" ))">
+                                <option value="">Select Author </option>
+                            </select>
+                            <label for="floatingSelect">Authors</label>
+                            <span asp-validation-for="@Model.AuthorId"></span>
+                        </div>
+                        <div class="form-floating mb-5">
+                            <select class="form-select form-select-solid js-select h-60px" style="padding-bottom: inherit;" asp-for="@Model.CategoryId" asp-items="@(new SelectList(ViewBag.Categories,"CategoryId","CategoryName" ))">
+                                <option value="">Select Category </option>
+                            </select>
+                            <label for="floatingSelect">Categories</label>
+                            <span asp-validation-for="@Model.CategoryId"></span>
+                        </div>
+                        <div class="form-floating mb-5">
+                            <input asp-for="@Model.Publisher" type="text" class="form-control form-control-solid" placeholder="Publisher">
+                            <label for="floatingInput">Publisher</label>
+                            <span asp-validation-for="@Model.Publisher"></span>
+                        </div>
+                        <div class="form-floating mb-5">
+                            <input id="datecalender" asp-for="@Model.PublishingDate" type="text" class="form-control form-control-solid " placeholder="Publishing Date">
+                            <label for="floatingInput">Publishing Date</label>
+                            <span asp-validation-for="@Model.PublishingDate"></span>
+                        </div>
+                        <div class="form-floating mb-5">
+                            <input asp-for="@Model.Hall" type="text" class="form-control form-control-solid" placeholder="Hall">
+                            <label for="floatingInput">Hall</label>
+                            <span asp-validation-for="@Model.Hall"></span>
+                        </div>
+
+                        <div class="w-200px h-100px">
+                            <img id="imagepreview" src="~/Admin/Uploads/Books/images (1).png" class="rounded float-start w-75 mb-5" />
+                        </div>
+                        <div class="form-floating mb-5">
+                            <input name="img" type="file" class="form-control form-control-solid" placeholder="Image Cover"
+                                   onchange="document.getElementById('imagepreview').src=window.URL.createObjectURL(this.files[0])">
+                            <span asp-validation-for="@Model.ImageUrl"></span>
+                        </div>
+                        <div class=" form-check form-switch mb-5">
+                            <input asp-for="IsAvaliableForRental" class="form-check-input" type="checkbox">
                             <label style="    font-size: 14px;" class="form-check-label">
-                           Is Available For Rental
-                        </label>
-                        <span asp-validation-for="@Model.IsAvaliableForRental"></span>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <textarea asp-for="@Model.Descreption" class="form-control" placeholder="Description"  style="height: 75px"></textarea>
-                        <label for="floatingTextarea2">Descreption</label>
-                        <span asp-validation-for="@Model.Descreption"></span>
-                    </div>
+                                Is Available For Rental
+                            </label>
+                            <span asp-validation-for="@Model.IsAvaliableForRental"></span>
+                        </div>
+
                         <button id=" js-savebutton" type="submit" class="btn btn-primary ">
-                        <i class="bi bi-check2"></i>
-                        Save
-                    </button>
+                            <i class="bi bi-check2"></i>
+                            Save
+                        </button>
+                    </div>
+                    <div class="col-md-6 ">
+
+                        <div class="form-floating h-370px mb-5">
+                            <textarea asp-for="@Model.Descreption" class="form-control form-control-solid js-tinymce" placeholder="Description" style="height:370px"></textarea>
+                            <label for="floatingTextarea2">Descreption</label>
+                            <span asp-validation-for="@Model.Descreption"></span>
+                        </div>
+
+                    </div>
                 </div>
-                     <div class="col-md-6 " >
-                        <img id="imagepreview" src="~/Admin/Uploads/Books/images (1).png" class="rounded float-start " style="width:420px;height:500px" alt="image preview">
-                     </div>
-                </div>
-               
-               
+
+
             </form>
-              
-           
+
+
         </div>
     </div>
 </div>
 
 @section Scripts
     {
+    <script src="~/lib/tinymce/tinymce.min.js"></script>
     <partial name="_ValidationScriptsPartial" />
-}
+
+    }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace BookStore.Domains
 {
@@ -25,11 +26,11 @@ namespace BookStore.Domains
         public string Publisher { get; set; }
 
         public DateTime PublishingDate { get; set; }=DateTime.Now;
-
+        [Required(ErrorMessage ="Author is Required")]
         public int AuthorId { get; set; }
 
         public TbAuthors Author { get; set; }
-
+        [Required(ErrorMessage = "Category is Required")]
         public int CategoryId{ get; set; }
 
         public TbCategories Category { get; set; }
