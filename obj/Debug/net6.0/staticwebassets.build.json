@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VNlsTmNiFX3z150ZuKQHesJngGlQjWboCQ0Jiv24qSk=",
+  "Hash": "27WSRQpJWQsqSFk20QVyEcwojotI5T4btDerwnV1NDk=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -2378,6 +2378,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Admin\\Uploads\\Books\\649ddc0c-b273-4994-a0cc-79e39b859d4a2023211.jpg"
+    },
+    {
+      "Identity": "D:\\Coursec\\Asp.Net Mvc\\Projects\\BookStore\\wwwroot\\Admin\\Uploads\\Books\\6d064f27-dbb7-42c7-8f75-09526c264c422023214.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Coursec\\Asp.Net Mvc\\Projects\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "Admin/Uploads/Books/6d064f27-dbb7-42c7-8f75-09526c264c422023214.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Admin\\Uploads\\Books\\6d064f27-dbb7-42c7-8f75-09526c264c422023214.jpg"
     },
     {
       "Identity": "D:\\Coursec\\Asp.Net Mvc\\Projects\\BookStore\\wwwroot\\Admin\\Uploads\\Books\\8f478d2e-723b-45bd-a553-34d6672896022023211.jpg",

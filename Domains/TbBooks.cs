@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 
@@ -8,8 +9,8 @@ namespace BookStore.Domains
     public class TbBooks:BaseModel
     {
         [Key]
-        public int BookId { get; set; } 
-
+        public int BookId { get; set; }
+        [Remote("AllowBook", "Books", "Admin", ErrorMessage = "This Book Aleardy Exist")]
         [Required(ErrorMessage ="Book Title Is Required")]
         [MaxLength(200,ErrorMessage ="Book Title Should Be Less Than 200 char")]
         public string BookTitle { get; set; }
@@ -24,8 +25,7 @@ namespace BookStore.Domains
         public bool IsAvaliableForRental { get; set; }
         [Required(ErrorMessage = "Thid Fiels IS Required")]
         public string Publisher { get; set; }
-
-        public DateTime PublishingDate { get; set; }=DateTime.Now;
+        public DateTime PublishingDate { get; set; }
         [Required(ErrorMessage ="Author is Required")]
         public int AuthorId { get; set; }
 

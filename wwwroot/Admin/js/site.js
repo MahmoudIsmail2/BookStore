@@ -103,6 +103,7 @@ $(document).ready(function () {
     $('#datecalender').daterangepicker({
         singleDatePicker: true,
         "drops": "up",
+        "maxDate":Date(),
         showDropdowns: true,
 
 

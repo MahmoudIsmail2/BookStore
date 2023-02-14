@@ -40,6 +40,14 @@
         "js/select2.min.js",
         "css/select2.min.css"
       ]
+    },
+    {
+      "library": "bootstrap-daterangepicker@3.0.5",
+      "destination": "wwwroot/lib/bootstrap-daterangepicker/"
+    },
+    {
+      "library": "tinymce@6.3.1",
+      "destination": "wwwroot/lib/tinymce/"
     }
   ]
 }

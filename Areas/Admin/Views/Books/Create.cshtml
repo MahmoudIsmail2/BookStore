@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating mb-5">
-                            <input asp-for="@Model.BookTitle" type="text" class="form-control form-control-solid" placeholder="Title">
+                            <input asp-for="@Model.BookTitle" maxlength="45" type="text" class="form-control form-control-solid" placeholder="Title">
                             <label for="floatingInput">Title</label>
                             <span asp-validation-for="@Model.BookTitle"></span>
                         </div>
@@ -34,7 +34,7 @@
                             <span asp-validation-for="@Model.CategoryId"></span>
                         </div>
                         <div class="form-floating mb-5">
-                            <input asp-for="@Model.Publisher" type="text" class="form-control form-control-solid" placeholder="Publisher">
+                            <input asp-for="@Model.Publisher" maxlength="45" type="text" class="form-control form-control-solid" placeholder="Publisher">
                             <label for="floatingInput">Publisher</label>
                             <span asp-validation-for="@Model.Publisher"></span>
                         </div>

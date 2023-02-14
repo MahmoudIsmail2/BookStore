@@ -1,7 +1,9 @@
 ﻿using BookStore.Areas.Admin.Models;
 using BookStore.Bl;
 using BookStore.Data;
+using BookStore.Domains;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Areas.Admin.Controllers
@@ -25,6 +27,11 @@ namespace BookStore.Areas.Admin.Controllers
         {
             return View();
         }
+        public IActionResult Details(int bookid)
+        {
+            var book =clsbooks.GetBookDetails(bookid);
+            return View(book);
+        }
         public IActionResult Create()
         {
             ViewBag.Authors =clsAuthors.GetAll().Where(a=>!a.IsDeleted);
@@ -45,7 +52,7 @@ namespace BookStore.Areas.Admin.Controllers
             {
                 var result= clsbooks.Save(book);
                 if (result)
-                    return RedirectToAction(nameof(List));
+                    return RedirectToAction(nameof(Details),new {bookid=book.BookId});
                 else
                     return RedirectToAction(nameof(Create));
             }
@@ -75,6 +82,20 @@ namespace BookStore.Areas.Admin.Controllers
             }
             return string.Empty;
         }
+        public IActionResult AllowBook(TbBooks book)
+        {
+            try
+            {
+                var isexists = context.TbBooks.Any(c => c.BookTitle == book.BookTitle);
+                return Json(!isexists);
+            }
+            catch (Exception ex)
+            {
+                return Json(false);
+            }
+
+        }
+
 
     }
 }
